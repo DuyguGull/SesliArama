@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebRTC Voice Chat</title>
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        padding: 20px;
+      }
+      h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+      }
+      #myID {
+        font-size: 1.2em;
+        color: #0078d7;
+      }
+      input[type="text"] {
+        padding: 10px;
+        font-size: 1em;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin: 10px 0;
+        width: calc(100% - 24px);
+        max-width: 400px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 1em;
+        margin: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #0078d7;
+        color: white;
+        transition: background-color 0.3s ease;
+      }
+      button:hover {
+        background-color: #0053a4;
+      }
+      .hidden {
+        display: none;
+      }
+      #status {
+        margin: 20px 0;
+        font-size: 1.2em;
+      }
+      #userList {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 400px;
+        width: 100%;
+      }
+      #userList div {
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 5px 0;
+        width: 100%;
+        text-align: center;
+      }
+      audio {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>WebRTC Sesli Arama</h1>
+    <span>Benim ID'm: <strong id="myID"></strong></span>
+    <input type="text" id="userIdInput" placeholder="Bir ID gir" />
+    <div>
+      <button id="startCall">Aramayı Başlat</button>
+      <button id="endCall" class="hidden">Aramayı Durdur</button>
+    </div>
+    <div id="status">Statü: Bağlantı Yok</div>
+    <div>
+      <h2>Kullanıcı Listesi</h2>
+      <section id="userList"></section>
+    </div>
+    <!-- Audio elements -->
+    <audio id="localAudio" autoplay muted></audio>
+    <audio id="remoteAudio" autoplay></audio>
+    <!-- Script -->
+    <script src="app.js"></script>
+  </body>
+</html>
+
